@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Science Perspectives Combined with Digitalization</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-brand">
+            <span class="nav-icon">&#9670;</span>
+            <span class="nav-title">Social Science &amp; Digitalization</span>
+        </div>
+        <div class="nav-links">
+            <a href="#intro-section">About</a>
+            <a href="#globe-section">Globe</a>
+            <a href="#projects-section">Projects</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Social Science Perspectives<br>Combined with Digitalization</h1>
+            <p class="hero-subtitle">A digital gallery exploring research at the intersection of social science inquiry, spatial thinking, and digital storytelling.</p>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section id="intro-section" class="intro-section">
+        <div class="intro-content">
+            <p class="intro-lead">This gallery presents research projects that employ digital tools—interactive mapping, data visualization, and multimedia storytelling—to investigate pressing questions in the social sciences.</p>
+            <p>From cross-border labor migration to gendered institutions, each project combines rigorous fieldwork with digital methods to make visible the structures, flows, and frictions that shape everyday life. Scroll down to explore the interactive globe and access individual research projects.</p>
+        </div>
+    </section>
+
+    <!-- Globe Section -->
+    <section id="globe-section" class="globe-section">
+        <div class="section-header">
+            <h2>Research Sites</h2>
+            <p>Rotate the globe to explore. Research locations are marked with interactive pins.</p>
+        </div>
+        <div class="globe-container">
+            <div id="globe-canvas"></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects-section" class="projects-section">
+        <div class="section-header">
+            <h2>Research Projects</h2>
+            <p>Click to enter each project's dedicated exhibit space.</p>
+        </div>
+        <div class="projects-grid">
+            <!-- Project Card: China-Vietnam Border -->
+            <a href="border-women.html" class="project-card">
+                <div class="project-thumb">
+                    <img src="images/fieldwork-c-vendors.png" alt="Vietnamese women vendors near the China-Vietnam border port">
+                </div>
+                <div class="project-info">
+                    <h3>Gendered Friction</h3>
+                    <p class="project-tagline">Women's Invisible Labor Along the China–Vietnam Border</p>
+                    <p class="project-desc">This study examines how Vietnamese women at the Dongxing–Móng Cái borderland absorb the institutional costs of cross-border mobility through invisible forms of labor—administrative, reproductive, emotional, and risk-related. The concept of "gendered friction" reveals how border governance functions at low cost by transferring its burdens onto women's daily practices, making their labor essential yet systematically unrecognized.</p>
+                    <span class="project-cta">Enter Project &rarr;</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2025 Social Science Perspectives Combined with Digitalization. A Digital Humanities Research Gallery.</p>
+    </footer>
+
+    <script src="js/globe.js"></script>
+</body>
+</html>

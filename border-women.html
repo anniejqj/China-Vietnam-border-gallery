@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gendered Friction — Women's Invisible Labor Along the China–Vietnam Border</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+</head>
+<body class="project-page">
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-brand">
+            <a href="index.html" class="back-link">&larr; Gallery</a>
+        </div>
+        <div class="nav-links">
+            <a href="#map-section">Map</a>
+            <a href="#story-section">Story</a>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="project-hero">
+        <div class="project-hero-content">
+            <h1>Gendered Friction</h1>
+            <p class="project-hero-sub">Women's Invisible Labor in the Everyday Institutions of the China–Vietnam Border</p>
+            <p class="project-hero-meta">Ethnographic research at the Dongxing–Móng Cái borderland &middot; Annie Qian</p>
+        </div>
+    </header>
+
+    <!-- Map Section -->
+    <section id="map-section" class="map-section">
+        <div class="section-header">
+            <h2>Study Area</h2>
+            <p>The Dongxing–Móng Cái borderland sits at the mouth of the Beilun (Ka Long) River where Guangxi, China meets Quảng Ninh, Vietnam. This interactive map shows the specific research locations.</p>
+        </div>
+        <div id="map" class="map-container"></div>
+        <div class="map-legend">
+            <div class="legend-item"><span class="legend-dot cn"></span> China-side location</div>
+            <div class="legend-item"><span class="legend-dot vn"></span> Vietnam-side location</div>
+            <div class="legend-item"><span class="legend-dot bridge"></span> Border crossing</div>
+        </div>
+    </section>
+
+    <!-- Storytelling Section -->
+    <section id="story-section" class="story-section">
+        <div class="section-header">
+            <h2>The Story of Invisible Labor</h2>
+            <p>Turn the pages to follow the layers of women's hidden labor at the border.</p>
+        </div>
+
+        <div class="book-container">
+            <div class="book-controls">
+                <button class="book-btn book-prev" id="prevPage" disabled>&larr; Previous</button>
+                <span class="book-progress" id="pageIndicator">Page 1 of 6</span>
+                <button class="book-btn book-next" id="nextPage">Next &rarr;</button>
+            </div>
+
+            <div class="book-pages" id="bookPages">
+                <!-- Page 1: Setting the Scene -->
+                <div class="book-page active" data-page="1">
+                    <div class="page-content">
+                        <div class="page-text">
+                            <h3>Chapter 1: Crossing the River</h3>
+                            <p class="page-epigraph">"The border is not a line; it is a daily negotiation carried out in women's bodies and time."<br><span class="epigraph-attr">— Melissa Wright, <em>Disposable Women and Other Myths of Global Capitalism</em> (2006)</span></p>
+                            <p>Every morning before dawn, Vietnamese women cross the Beilun River from Móng Cái into Dongxing. They come to work—as vendors, translators, childcare providers, and informal service workers. But before any of that labor begins, they must first perform a different kind of work: the labor of making themselves legible to the state.</p>
+                            <p>This is the story of what it costs to cross a border not once, but every day. It is a story told in visa fees, waiting rooms, marriage certificates, and the quiet anxiety of being "almost legal" but never quite enough.</p>
+                        </div>
+                        <div class="page-image">
+                            <img src="images/fieldwork-a-trade-space.png" alt="Border trade service space at Dongxing">
+                            <span class="img-caption">Border trade service space near the Dongxing port, where Vietnamese women navigate bureaucratic processes daily.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 2: Administrative Labor -->
+                <div class="book-page" data-page="2">
+                    <div class="page-content">
+                        <div class="page-text">
+                            <h3>Chapter 2: The Weight of Papers</h3>
+                            <p class="page-epigraph">"Bureaucratic encounters are never neutral; they are sites where gender, race, and citizenship intersect to produce differential vulnerabilities."<br><span class="epigraph-attr">— Aihwa Ong, <em>Flexible Citizenship</em> (1999)</span></p>
+                            <p>Administrative labor [行政劳动] is the first and most persistent form of invisible work. Vietnamese women must continuously renew visas, register temporary residence, obtain marriage certificates if married to Chinese men, and translate documents between languages. Each task requires its own queue, its own fee, its own set of intermediaries.</p>
+                            <p>One interviewee, a woman who had lived in Dongxing for eight years, described spending three full days each quarter navigating the visa renewal process—days she could not work, could not earn, could not care for her children.</p>
+                            <p class="page-quote">"Every three months, I lose three days. That's twelve days a year just to prove I'm allowed to be here. My husband doesn't understand why I'm always anxious when the date approaches."<br><span class="quote-attr">— Interviewee, Vietnamese woman married to Chinese man, Dongxing, 2024</span></p>
+                            <p>Language brokering adds another dimension: women serve as unpaid translators for family members, fellow migrants, and even local businesses. This linguistic labor is never counted as "work," yet without it, cross-border commerce would grind to a halt.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 3: Reproductive & Care Labor -->
+                <div class="book-page" data-page="3">
+                    <div class="page-content">
+                        <div class="page-image">
+                            <img src="images/fieldwork-b-visa-ads.png" alt="Visa and cross-border service advertisements">
+                            <span class="img-caption">Advertisements for visa services and cross-border documentation line the streets near the border gate.</span>
+                        </div>
+                        <div class="page-text">
+                            <h3>Chapter 3: Caring Across Borders</h3>
+                            <p class="page-epigraph">"The work of social reproduction—of maintaining life itself—has always been feminized, devalued, and rendered invisible within capitalist economies."<br><span class="epigraph-attr">— Silvia Federici, <em>Revolution at Point Zero</em> (2012)</span></p>
+                            <p>Reproductive labor [再生产劳动] encompasses the daily tasks of maintaining households, raising children, caring for the elderly, and building community networks that span the border. Vietnamese women married to Chinese men bear a double burden: they must meet the expectations of Chinese familial norms while maintaining transnational ties with their Vietnamese families.</p>
+                            <p>Childcare arrangements are particularly complex. Women must navigate two educational systems, two languages, and two sets of cultural expectations. Those with children enrolled in Chinese schools must attend parent meetings, communicate with teachers in Mandarin, and help with homework in a language that may not be their strongest.</p>
+                            <p class="page-quote">"I wake at 5 AM to prepare food for my mother-in-law, then take the children to school, then cross the bridge to check on my own mother in Móng Cái. By noon I haven't started my own work yet."<br><span class="quote-attr">— Interviewee, Vietnamese woman, Dongxing market vendor, 2024</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 4: Risk & Emotional Labor -->
+                <div class="book-page" data-page="4">
+                    <div class="page-content">
+                        <div class="page-text">
+                            <h3>Chapter 4: Living with Uncertainty</h3>
+                            <p class="page-epigraph">"To be undocumented is to live in a state of permanent temporariness, where the future is always conditional and the present always precarious."<br><span class="epigraph-attr">— Nicholas De Genova, <em>Working the Boundaries</em> (2005)</span></p>
+                            <p>Risk management labor [风险管理劳动] and emotional labor [情感劳动] form the hidden substrate of border life. Vietnamese women must constantly calculate: Which route is safest today? Will there be a crackdown? Can I afford the fine if caught working without the right permit? Should I invest in a more expensive but "safer" visa arrangement?</p>
+                            <p>The emotional toll is immense. Women describe chronic anxiety about their legal status, fear of random enforcement, and the psychic weight of social stigma. In Dongxing, Vietnamese women—regardless of their actual activities—are frequently stereotyped and subjected to moral judgment by local Chinese residents.</p>
+                            <p class="page-quote">"When the police car passes, my heart stops even though my papers are in order. You never know if 'in order' will be enough today."<br><span class="quote-attr">— Interviewee, Vietnamese cross-border trader, 2024</span></p>
+                            <p>This constant vigilance—the need to be alert, composed, and strategically docile in the face of authority—is itself a form of labor. It drains energy, forecloses spontaneity, and shapes every decision from where to live to whom to trust.</p>
+                        </div>
+                        <div class="page-image">
+                            <img src="images/fieldwork-d-streetscape.png" alt="Border stalls and passport service streetscape">
+                            <span class="img-caption">The streetscape near the border: passport services, money exchange, and informal labor networks coexist in a landscape of opportunity and precarity.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 5: Agency & Differentiation -->
+                <div class="book-page" data-page="5">
+                    <div class="page-content">
+                        <div class="page-text">
+                            <h3>Chapter 5: Not One Story, But Many</h3>
+                            <p class="page-epigraph">"We must resist the tendency to treat 'Third World women' as a homogeneous category defined solely by their oppression."<br><span class="epigraph-attr">— Chandra Mohanty, <em>Under Western Eyes</em> (1988)</span></p>
+                            <p>Not all Vietnamese women at the border share the same experience. Their positions are differentiated by class, education, marital status, length of residence, and the specific nature of their cross-border activities. A woman married to a Chinese businessman navigates different institutions—and possesses different resources—than a daily vendor who returns to Móng Cái each evening.</p>
+                            <p>Some women have leveraged their bilingual abilities into professional careers as interpreters or trade consultants. Others remain trapped in cycles of informal labor with no path to stability. The concept of "differentiated positions" [差异化位置] captures this spectrum without flattening it into a single narrative of victimhood.</p>
+                            <p>Agency exists within constraint. Women develop sophisticated strategies: pooling information through WeChat groups, cultivating relationships with specific border officials, timing their crossings to avoid peak enforcement hours, and building reputations as reliable workers to secure repeat clients.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 6: Gendered Friction -->
+                <div class="book-page" data-page="6">
+                    <div class="page-content">
+                        <div class="page-image">
+                            <img src="images/fieldwork-photos.png" alt="Fieldwork composite - four scenes from the China-Vietnam border">
+                            <span class="img-caption">Composite: scenes from the Dongxing–Móng Cái borderland documenting trade spaces, services, vendors, and streetscapes.</span>
+                        </div>
+                        <div class="page-text">
+                            <h3>Chapter 6: Gendered Friction</h3>
+                            <p class="page-epigraph">"Friction reminds us that heterogeneous and unequal encounters can lead to new arrangements of culture and power."<br><span class="epigraph-attr">— Anna Tsing, <em>Friction: An Ethnography of Global Connection</em> (2005)</span></p>
+                            <p>The concept of <strong>gendered friction</strong> [性别化摩擦] synthesizes the findings of this research. Drawing on Anna Tsing's notion of "friction" as the grip of worldly encounter, this study extends it to reveal how the resistances, delays, and costs of border-crossing are not distributed equally—they are absorbed disproportionately by women through their invisible labor.</p>
+                            <p>Borders appear to function smoothly precisely because women's work—administrative, reproductive, emotional, risk-absorbing—oils the machinery of cross-border life. When a visa is renewed, a child is enrolled in school, a family is fed, a bribe is calculated, a smile is performed for an official—these are all acts of labor that make the border "work." Yet they remain systematically unrecognized by state accounting, economic statistics, and even the women's own families.</p>
+                            <p>Gendered friction is not merely an academic concept. It is a call to make visible what has been rendered invisible—to count the uncounted costs of borders borne by women's bodies, time, and emotional reserves.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2>About This Research</h2>
+            <p>This digital exhibition is based on ethnographic fieldwork conducted at the Dongxing–Móng Cái borderland (Guangxi, China / Quảng Ninh, Vietnam) in 2024. Through interviews, participant observation, and spatial analysis, the research documents how Vietnamese women's invisible labor sustains the everyday functioning of cross-border institutions.</p>
+            <div class="about-meta">
+                <p><strong>Researcher:</strong> Annie Qian</p>
+                <p><strong>Keywords:</strong> Invisible labor &middot; Social reproduction &middot; Feminist geography &middot; Vietnamese women &middot; China–Vietnam border &middot; Gendered friction</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p><a href="index.html">&larr; Back to Gallery</a></p>
+        <p>&copy; 2025 Social Science Perspectives Combined with Digitalization.</p>
+    </footer>
+
+    <script>
+    // MapLibre Map
+    const map = new maplibregl.Map({
+        container: 'map',
+        style: 'https://tiles.openfreemap.org/styles/positron',
+        center: [107.972, 21.535],
+        zoom: 12,
+        maxZoom: 16,
+        minZoom: 6,
+        maxBounds: [[107.85, 21.42], [108.10, 21.65]],
+        attributionControl: false
+    });
+
+    map.addControl(new maplibregl.NavigationControl({ visualizePitch: false }), 'top-right');
+    map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
+    map.addControl(new maplibregl.AttributionControl({
+        compact: true,
+        customAttribution: '&copy; <a href="https://openfreemap.org/">OpenFreeMap</a> &middot; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
+    }), 'bottom-right');
+
+    const landmarks = [
+        { name: 'Dongxing', sub: '东兴市', lng: 107.9719, lat: 21.5547, side: 'cn' },
+        { name: 'Móng Cái', sub: 'Quảng Ninh, Vietnam', lng: 107.9706, lat: 21.5267, side: 'vn' },
+        { name: 'Beilun River Bridge', sub: '北仑河大桥 / Cầu Bắc Luân', lng: 107.9712, lat: 21.5318, side: 'bridge' },
+        { name: 'Beilun Bridge II', sub: '北仑河二桥', lng: 108.0080, lat: 21.5125, side: 'bridge' },
+        { name: 'Dongxing Port', sub: '东兴口岸', lng: 107.9718, lat: 21.5340, side: 'cn' },
+        { name: 'Mong Cai Border Gate', sub: 'Cửa khẩu Móng Cái', lng: 107.9695, lat: 21.5290, side: 'vn' }
+    ];
+
+    map.on('load', () => {
+        map.addSource('study-area', {
+            type: 'geojson',
+            data: { type: 'Feature', geometry: { type: 'Polygon', coordinates: [[[107.93,21.48],[108.05,21.48],[108.05,21.60],[107.93,21.60],[107.93,21.48]]] } }
+        });
+        map.addLayer({ id: 'study-fill', type: 'fill', source: 'study-area', paint: { 'fill-color': '#d4a574', 'fill-opacity': 0.1 } });
+        map.addLayer({ id: 'study-outline', type: 'line', source: 'study-area', paint: { 'line-color': '#d4a574', 'line-width': 1.5, 'line-dasharray': [3,2] } });
+
+        map.addSource('river', {
+            type: 'geojson',
+            data: { type: 'Feature', geometry: { type: 'LineString', coordinates: [[107.94,21.58],[107.955,21.555],[107.965,21.545],[107.970,21.535],[107.975,21.525],[107.99,21.515],[108.005,21.505],[108.020,21.498],[108.030,21.490]] } }
+        });
+        map.addLayer({ id: 'river-line', type: 'line', source: 'river', paint: { 'line-color': '#4a7a9a', 'line-width': 2, 'line-dasharray': [2,2] } });
+
+        landmarks.forEach(p => {
+            const el = document.createElement('div');
+            el.className = 'map-marker ' + p.side;
+            const popup = new maplibregl.Popup({ offset: 12, maxWidth: '240px' })
+                .setHTML('<strong>' + p.name + '</strong><br><small>' + p.sub + '</small>');
+            new maplibregl.Marker({ element: el }).setLngLat([p.lng, p.lat]).setPopup(popup).addTo(map);
+        });
+    });
+
+    // Book page turning
+    const pages = document.querySelectorAll('.book-page');
+    const prevBtn = document.getElementById('prevPage');
+    const nextBtn = document.getElementById('nextPage');
+    const indicator = document.getElementById('pageIndicator');
+    let currentPage = 1;
+    const totalPages = pages.length;
+
+    function showPage(n) {
+        pages.forEach(p => p.classList.remove('active', 'exit-left', 'exit-right'));
+        const target = document.querySelector('[data-page="' + n + '"]');
+        if (target) {
+            target.classList.add('active');
+        }
+        currentPage = n;
+        prevBtn.disabled = (n === 1);
+        nextBtn.disabled = (n === totalPages);
+        indicator.textContent = 'Page ' + n + ' of ' + totalPages;
+    }
+
+    prevBtn.addEventListener('click', () => { if (currentPage > 1) showPage(currentPage - 1); });
+    nextBtn.addEventListener('click', () => { if (currentPage < totalPages) showPage(currentPage + 1); });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && currentPage > 1) showPage(currentPage - 1);
+        if (e.key === 'ArrowRight' && currentPage < totalPages) showPage(currentPage + 1);
+    });
+    </script>
+</body>
+</html>
