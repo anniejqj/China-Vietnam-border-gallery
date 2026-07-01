@@ -71,56 +71,71 @@
         return fetch(DATA_URL).then(function(r) { return r.json(); });
     }
 
+    // Brighter Morandi palette per continent (still muted / low saturation)
+    var MORANDI_COLORS = {
+        'North America': 0x8FAE98,
+        'South America': 0xC4A77D,
+        'Europe': 0x9BB5A5,
+        'Africa': 0xC9957A,
+        'Asia': 0x8BAE9C,
+        'Oceania': 0xC4A574,
+        'Seven seas (open ocean)': 0xA8B5B9,
+        'Antarctica': 0xA8B5B9
+    };
+
     function buildGlobe(data) {
-        // 1. Very subtle landmass fill — almost like a watercolor wash
-        var landPositions = [];
-        data.landmass.forEach(function(poly) {
-            if (poly.type === 'Polygon') {
-                triangulateRing(poly.coords[0], landPositions, 1.001);
-            } else if (poly.type === 'MultiPolygon') {
-                poly.coords.forEach(function(p) { triangulateRing(p[0], landPositions, 1.001); });
-            }
-        });
-        if (landPositions.length > 0) {
-            var landGeo = new THREE.BufferGeometry();
-            landGeo.setAttribute('position', new THREE.Float32BufferAttribute(landPositions, 3));
-            landGeo.computeVertexNormals();
-            var landMat = new THREE.MeshLambertMaterial({
-                color: 0x2d3a42,
+        // 1. Continent fills — brighter Morandi colors, subtle but visible
+        Object.keys(data.continents).forEach(function(name) {
+            var cont = data.continents[name];
+            var color = MORANDI_COLORS[name] || 0x8B8B7A;
+            var positions = [];
+            cont.polygons.forEach(function(poly) {
+                if (poly.type === 'Polygon') {
+                    triangulateRing(poly.coords[0], positions, 1.0012);
+                } else if (poly.type === 'MultiPolygon') {
+                    poly.coords.forEach(function(p) { triangulateRing(p[0], positions, 1.0012); });
+                }
+            });
+            if (positions.length === 0) return;
+            var geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            geo.computeVertexNormals();
+            var mat = new THREE.MeshLambertMaterial({
+                color: color,
                 transparent: true,
-                opacity: 0.35,
+                opacity: 0.6,
                 side: THREE.DoubleSide
             });
-            var landMesh = new THREE.Mesh(landGeo, landMat);
-            landMesh.name = 'landmass-fill';
-            globe.add(landMesh);
-        }
+            var mesh = new THREE.Mesh(geo, mat);
+            mesh.name = 'continent-fill-' + name;
+            globe.add(mesh);
+        });
 
         // 2. Accurate country boundaries as fine light lines
         var linePositions = [];
         data.countryOutlines.forEach(function(country) {
-            appendPolygonLines(country.coords, country.type, linePositions, 1.0025);
+            appendPolygonLines(country.coords, country.type, linePositions, 1.0028);
         });
         if (linePositions.length > 0) {
             var lineGeo = new THREE.BufferGeometry();
             lineGeo.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
-            var lineMat = new THREE.LineBasicMaterial({ color: 0xc9d1d9, transparent: true, opacity: 0.55 });
+            var lineMat = new THREE.LineBasicMaterial({ color: 0xdde3ea, transparent: true, opacity: 0.62 });
             globe.add(new THREE.LineSegments(lineGeo, lineMat));
         }
 
-        // 3. Coastline outline — slightly brighter for definition
+        // 3. Coastline outline — warm off-white for soft definition
         var coastPositions = [];
         data.landmass.forEach(function(poly) {
             if (poly.type === 'Polygon') {
-                appendPolygonLines(poly.coords, 'Polygon', coastPositions, 1.003);
+                appendPolygonLines(poly.coords, 'Polygon', coastPositions, 1.0033);
             } else if (poly.type === 'MultiPolygon') {
-                appendPolygonLines(poly.coords, 'MultiPolygon', coastPositions, 1.003);
+                appendPolygonLines(poly.coords, 'MultiPolygon', coastPositions, 1.0033);
             }
         });
         if (coastPositions.length > 0) {
             var coastGeo = new THREE.BufferGeometry();
             coastGeo.setAttribute('position', new THREE.Float32BufferAttribute(coastPositions, 3));
-            var coastMat = new THREE.LineBasicMaterial({ color: 0xeae6de, transparent: true, opacity: 0.38 });
+            var coastMat = new THREE.LineBasicMaterial({ color: 0xf0e6c8, transparent: true, opacity: 0.42 });
             globe.add(new THREE.LineSegments(coastGeo, coastMat));
         }
 
